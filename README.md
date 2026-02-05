@@ -42,7 +42,7 @@ Since this is a static project, you don't need to install complex dependencies.
 
 This project is part of a larger ecosystem of web utilities. Check out the other tools:
 
-* 🔒 **[Secure Password Generator](LINK-CATRE-REPO-PAROLE)** - Generate strong, unbreakable passwords client-side.
+* 🔒 **[Secure Password Generator](https://costin-cernea.github.io/password-generator/)** - Generate strong, unbreakable passwords client-side.
 
 ## 👨‍💻 Author
 
