@@ -1,110 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator de Coduri QR</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #282c36;
-            color: #f8f9fa;
-            text-align: center;
-            margin: 0;
-            padding: 50px 0;
-            transition: background-color 0.3s;
-        }
-
-        h1 {
-            color: #e94e77;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 0px 0px 8px rgba(233, 78, 119, 0.7);
-        }
-
-        label {
-            display: block;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-
-        input {
-            width: 80%;
-            max-width: 400px;
-            padding: 12px;
-            border: 2px solid #e94e77;
-            background-color: #3c4252;
-            color: #f8f9fa;
-            border-radius: 25px;
-            font-size: 1em;
-            outline: none;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #e94e77;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
-            cursor: pointer;
-            box-shadow: 0px 0px 15px rgba(233, 78, 119, 0.5);
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        button:hover {
-            box-shadow: 0px 0px 20px rgba(233, 78, 119, 0.7);
-            transform: translateY(-3px);
-        }
-
-        img {
-            margin-top: 40px;
-            max-width: 100%;
-            box-shadow: 0px 0px 20px rgba(233, 78, 119, 0.5);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Online QR Code Generator">
+  <title>QR Code Generator</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
+
 <body>
-    <h1>Tema-Cernea Costin Matei. Generator de Coduri QR</h1>
-    
-    <label for="data-input">Introduceți datele pentru codul QR:</label>
-    <input type="text" id="data-input" placeholder="Introduceți textul aici...">
-    <button onclick="genereazaQR()">Generează QR</button>
+  <header>
+    <div class="header-content">
+      <div class="header-left">
+        <div class="logo">
+          <a href="index.html">QuickTools</a>
+        </div>
 
-    <img id="qr-image" alt="Aici va apărea codul QR generat">
-	
-	<h2>- concept teoretic, formula de calcul
-	</h2>
-<p>Codurile QR (Quick Response Codes) sunt o formă de coduri de bare bidimensionale. Acestea pot stoca o cantitate mare de informații, inclusiv text, URL-uri și date. Sunt scanabile cu majoritatea dispozitivelor mobile care au o cameră, ceea ce le face ideale pentru diverse aplicații.
+        <nav class="header-nav">
+          <div class="dropdown">
+            <button class="dropbtn">Tools</button>
+            <div class="dropdown-content">
+              <a href="https://costinmatei.github.io/password-generator/">🔒 Password Gen</a>
+              
+              <a href="#" class="active-tool">📱 QR Code Gen</a>
+            </div>
+          </div>
 
-	Pentru a genera un cod QR, trebuie să urmăm un algoritm specific care să transforme datele introduse într-o matrice de pătrate mici. </p>
-	<p>Procesul de generare a unui cod QR include următoarele etape:<br>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
 
-		<b><u>Selectarea nivelului de corectare a erorilor:</u></b> Există patru niveluri diferite de corectare a erorilor disponibile pentru codurile QR: L (7%), M (15%), Q (25%) și H (30%). Acesta determină cât de multe date pot fi pierdute sau deteriorate și încă restaurate atunci când codul este scanat.<br>
-		
-		<b><u>Codificarea datelor:</u></b> Datele introduse sunt transformate într-un format binar care poate fi reprezentat în codul QR. Există mai multe moduri posibile de codificare, inclusiv numeric, alfanumeric, octet și kanji.<br>
-		
-		<b><u>Generarea unui polinom de corectare a erorilor:</u></b> Pe baza datelor codificate și a nivelului de corectare a erorilor selectat, este generat un polinom de corectare a erorilor.<br>
-		
-		<b><u>Organizarea datelor într-un șablon de matrice:</u></b> Datele codificate și polinomul de corectare a erorilor sunt organizate într-o matrice conform specificațiilor codului QR. Aceasta include, de asemenea, șabloane speciale și modele de aliniere care ajută la scanarea și decodarea corectă a codului.<br>
-		
-		<b><u>Aplicarea unei măști:</u></b> Pentru a îmbunătăți citirea codului, se aplică una dintre cele opt măști posibile pentru a schimba modul în care modulele sunt afișate.<br>
-		
-		<b><u>Generarea imaginii finale:</u></b> Odată ce toate datele sunt organizate și mășcate corespunzător, codul QR este generat ca o imagine care poate fi printată sau afișată pe un ecran.</p>
-		<h2>- program sursa + EXPLICATII</h2>
-		<p>Codul HTML care are integrata partea de CSS si JavaScript <a href="https://www.dropbox.com/scl/fi/891de1gg9y3dr5ls40t17/index.html?rlkey=mdufsmvm1dscenh67jrr8htjq&dl=0">este chiar aici</a><br>Din cauza complexitatii generarii codurilor QR, in cadrul acestei aplicatii, m-am bazat pe un serviciu online pentru a face această transformare(am folosit API-ul oferit de qrserver.com).</p>
-		<h2>- print screen cu rezultatul rularii programului</h2>
-		<p>Puteti testa cu ajutorul aplicatiei de mai sus daca functioneaza.</p>
-		<h2>- bibliografie</h2>
-		<a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:18004:ed-2:en">ISO/IEC 18004:2006 </a>
-		<p>Diverse articole și tutoriale online</p>
-		
-    <script>
-        function genereazaQR() {
-            const data = document.getElementById('data-input').value;
-            const imageUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(data)}&size=200x200`;
-            document.getElementById('qr-image').src = imageUrl;
-        }
-    </script>
+      <div class="theme-switch-container">
+        <span class="theme-icon">☀️</span>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"></span>
+        </label>
+        <span class="theme-icon">🌙</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>QR Code Generator</h2>
+
+      <label for="qr-text">Enter URL or Text:</label>
+      <input type="text" id="qr-text" placeholder="https://example.com" onkeypress="handleEnter(event)">
+      
+      <button onclick="generateQR()">Generate QR Code</button>
+      
+      <div class="output" id="qrcode"></div>
+    </div>
+
+    <section id="about" class="info-section">
+      <h2>About QR Generator</h2>
+      <p>Instantly create QR codes directly in your browser. No data collection.</p>
+    </section>
+
+    <section id="contact" class="info-section">
+        <h2>Contact</h2>
+        <p>Part of the QuickTools suite.</p>
+        <p><a href="mailto:costinmatei.cernea@gmail.com">costinmatei.cernea@gmail.com</a></p>
+      </section>
+  </main>
+
+  <footer>
+    <p>© 2025 QuickTools</p>
+  </footer>
+  
+  <script src="script.js"></script>
 </body>
 </html>
