@@ -8,7 +8,7 @@ A lightweight, fast, and privacy-focused web tool to generate custom QR codes in
 
 Part of the **QuickTools** utility suite.
 
-🔗 **Live Demo:** [CLICK HERE TO VIEW](https://costinmatei.github.io/qr-generator/)
+🔗 **Live Demo:** [CLICK HERE TO VIEW](https://costin-cernea.github.io/qr-generator/)
 
 ---
 
