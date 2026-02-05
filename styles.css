@@ -86,7 +86,7 @@ header {
   gap: 0.5rem;
 }
 
-/* Stil comun pentru Link-uri si Butonul Tools - pentru aliniere perfecta */
+
 .nav-link,
 .dropbtn {
   display: flex;
@@ -120,7 +120,20 @@ header {
   align-items: center;
 }
 
-/* Sageata generata din CSS pentru aliniere */
+
+
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -20px; 
+  left: 0;
+  width: 100%;
+  height: 20px; 
+  background: transparent;
+  display: block;
+}
+
+
 .dropbtn::after {
   content: "▼";
   font-size: 0.7em;
@@ -129,7 +142,7 @@ header {
   top: 1px;
 }
 
-/* Meniul care cade */
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -363,19 +376,19 @@ input:checked + .slider:before {
   font-size: 18px;
 }
 
-/* ===== Media Queries (Mobile Optimization) ===== */
+
 @media (max-width: 768px) {
-  /* 1. Ascundem butonul de Dark Mode pe mobil */
+ 
   .theme-switch-container {
     display: none;
   }
 
-  /* 2. Aranjam header-ul pe coloana (Logo sus, Meniu jos) */
+
   .header-content {
     flex-direction: column;
     align-items: center;
     padding: 1rem 0.5rem;
-    gap: 10px; /* Spatiu mai mic intre Logo si Meniu */
+    gap: 10px; 
   }
 
   .header-left {
@@ -384,30 +397,41 @@ input:checked + .slider:before {
     width: 100%;
   }
 
-  /* 3. Meniul sa fie centrat si sa ocupe tot spatiul */
+
   .header-nav {
     width: 100%;
-    justify-content: center; /* Centreaza butoanele */
-    gap: 5px; /* Spatiu mic intre butoane ca sa incapa toate */
-    flex-wrap: wrap; /* Daca e ecranul foarte mic, le lasa sa cada pe randul urmator */
+    justify-content: center; 
+    gap: 5px; 
+    flex-wrap: wrap; 
   }
 
-  /* Butoanele putin mai mici pe mobil ca sa incapa bine */
+ 
   .nav-link, 
   .dropbtn {
     padding: 8px 10px;
     font-size: 0.95rem;
   }
 
-  /* Ajustari container principal */
+
   .container, 
   .info-section {
     padding: 15px;
-    width: 95%; /* Folosim mai mult din ecran */
+    width: 95%;
   }
   
-  /* Titlurile un pic mai mici */
+
   h2 {
     font-size: 1.5rem;
   }
+}
+
+/* ===== Download Button (QR Specific) ===== */
+.btn-download {
+  display: none; 
+  background-color: #28a745; 
+  margin-top: 15px;
+}
+
+.btn-download:hover {
+  background-color: #218838; 
 }
