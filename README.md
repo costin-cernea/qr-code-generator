@@ -33,7 +33,7 @@ Since this is a static project, you don't need to install complex dependencies.
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/costinmatei/qr-generator.git](https://github.com/costinmatei/qr-generator.git)
+    git clone https://github.com/costin-cernea/qr-code-generator.git
     ```
 2.  **Open the project:**
     Navigate to the folder and open `index.html` in your favorite browser.
