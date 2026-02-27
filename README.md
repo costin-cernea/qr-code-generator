@@ -46,7 +46,7 @@ This project is part of a larger ecosystem of web utilities. Check out the other
 
 ## 👨‍💻 Author
 
-**Costin Matei**
+**Cernea Costin**
 * GitHub: [@costin-cernea](https://github.com/costin-cernea)
 
 ## 📄 License
